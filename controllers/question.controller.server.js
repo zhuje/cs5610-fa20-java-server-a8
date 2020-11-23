@@ -8,5 +8,12 @@ module.exports = (app) => {
         res.json(questions)
     }
 
+    const findAllQuestions =(req, res) => {
+        const questions = questionService.findAllQuestions()
+        res.json(questions)
+    }
+
     app.get("/api/quizzes/:qid/questions", findQuestionsForQuiz)
+    app.get("/api/questions", findAllQuestions)
+
 }
